@@ -53,9 +53,6 @@ public class CalculatorMain {
         }
         else{
             result = calculated(CovertN1, ConvertN2, instrument);
-            if(CovertN1 < ConvertN2){
-                throw new IOException("У Римских чисел нет чисел <0.");
-            }
             String resultRoman = convertNumToRoman(result);
             return resultRoman;
         }
@@ -122,6 +119,9 @@ public class CalculatorMain {
                 answer = n1 + n2;;
                 break;
             case '-':
+                if(n1 < n2){
+                    throw new IOException("У Римских чисел нет чисел <0.");
+                }
                 answer = n1 - n2;;
                 break;
             case '/':
